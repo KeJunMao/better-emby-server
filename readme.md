@@ -31,7 +31,7 @@ http://*****.emby.****:80 2957ms not emby
 使用 `-p` 指定代理，仅支持 `http` `https` `socks5`
 
 ```bash
-go run bes.go -f servers.txt -p socks5://192.168.1.1:1080
+❯ bes -f servers.txt -p socks5://192.168.1.1:1080
 http://*****.emby.****:8096 233ms not emby
 http://*****.emby.****:80 303ms not emby
 http://*****.emby.****:80 403ms not emby
