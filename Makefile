@@ -1,5 +1,5 @@
 BINARY=bes
-VERSION=0.0.1
+VERSION=0.0.2
 release:
 		# Clean
 		pwd
