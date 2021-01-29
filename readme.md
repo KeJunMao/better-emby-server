@@ -14,14 +14,16 @@
 
 另外，由于浏览器安全策略原因，还分如下两个版本
 
-* [https 版本](https://kejunmao.github.io/better-emby-server/index.html)
+- [https 版本](https://kejunmao.github.io/better-emby-server/index.html)
 
   仅能测试 https 链接的 emby 服务器
-* [http 版本](http://bes.kejun.me)
+
+- [http 版本](http://bes.kejun.me)
 
   可以测试 http 和 https 的 emby 服务器
 
 ### 命令行
+
 #### 基础
 
 使用 `-f` 指定服务器列表，只要把通过 `/create` 命令，厂妹发给你的信息另存为一个文件即可
@@ -53,24 +55,40 @@ http://*****.emby.****:8096 233ms not emby
 http://*****.emby.****:80 303ms not emby
 http://*****.emby.****:80 403ms not emby
 ```
+
+#### 使用 ICMP
+
+使用 `-i` 以使用 ICMP 测试，对每个服务器发送 4 次 ping 然后取平均值
+
+注意，该模式下指定代理并不会生效，也无法测试 not emby 的情况
+
+```bash
+❯ bes -f servers.txt -i
+http://*****.emby.****:8096 51ms ok
+http://*****.emby.****:80 54ms ok
+http://*****.emby.****:80 53ms ok
+```
+
 #### 帮助
 
 ```bash
 ❯ bes -h
 bes - better emby server
 
-并发 http 请求获取公益服地址请求耗时
+并发 http/icmp 请求获取公益服地址请求耗时
   -f string
         厂妹发给你的服务器消息另存为文件的路径
+  -i    使用 ICMP 测试
   -p string
         使用指定的代理测试
 ```
 
 ## 常见问题
 
-* 全是 0ms error
+- 全是 0ms error
 
   检查网络或代理是否有效
-* not emby 是什么
+
+- not emby 是什么
 
   厂妹返回的服务器地址，但是首页是 nginx 哎

@@ -6,9 +6,11 @@ import (
 	"net/url"
 	"strings"
 	"time"
+
+	"github.com/go-ping/ping"
 )
 
-func HttpGet(options HttpGetOptions) ResultItem {
+func HttpGet(options GetOptions) ResultItem {
 	result := ResultItem{
 		Api:     options.Api,
 		Timer:   0,
@@ -40,5 +42,24 @@ func HttpGet(options HttpGetOptions) ResultItem {
 		return result
 	}
 	result.Message = "not emby"
+	return result
+}
+
+func IcmpGet(options GetOptions) ResultItem {
+	result := ResultItem{
+		Api:     options.Api,
+		Timer:   0,
+		Message: "error",
+	}
+	u, _ := url.Parse(options.Api)
+	pinger, _ := ping.NewPinger(strings.Split(u.Host, ":")[0])
+	pinger.Count = 4
+	err := pinger.Run() // Blocks until finished.
+	if err != nil {
+		return result
+	}
+	stats := pinger.Statistics() // get send/receive/rtt stats
+	result.Timer = int(stats.AvgRtt.Milliseconds())
+	result.Message = "ok"
 	return result
 }

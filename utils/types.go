@@ -6,7 +6,7 @@ type ResultItem struct {
 	Message string
 }
 
-type HttpGetOptions struct {
+type GetOptions struct {
 	Api   string
 	Proxy string
 }
