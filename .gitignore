@@ -1,3 +1,6 @@
 servers.txt
 bes
 *.tar.gz
+node_modules/
+
+.DS_Store
