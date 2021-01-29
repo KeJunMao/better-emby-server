@@ -1,5 +1,8 @@
 <script>
   import Result from "./Result.svelte";
+  import Checkbox from "./Checkbox.svelte"
+  import Header from "./Header.svelte"
+
   let text = "";
   let serverList = [];
   let resultList = [];
@@ -73,20 +76,23 @@
   }
 </script>
 
+<Header value={serverList.length}></Header>
 <main>
-  <textarea
-    placeholder="粘贴厂妹返回的服务器地址消息"
-    class="input"
-    bind:value={text}
-    on:change={onTextChange}
-    disabled={lock}
-  />
-  <label>
-    <input type="checkbox" bind:checked={concurrent} />
-    并发请求 - 大幅提高请求速度，精确度有所降低
-  </label>
+  <div class="inputContainer">
+    <textarea
+      rows="5"
+      placeholder="粘贴厂妹返回的服务器地址消息将自动开始测速"
+      class="input"
+      bind:value={text}
+      on:change={onTextChange}
+      disabled={lock}
+    />
+  </div>
 
-  <p>有效服务器地址 {serverList.length} 条</p>
+  <Checkbox bind:checked={concurrent}>
+    启用并发
+  </Checkbox>
+
   {#if serverList.length > 0}
     <table width="100%">
       <thead>
@@ -104,8 +110,30 @@
 </main>
 
 <style>
+  main{
+    padding: 2% 4%;
+  }
   .input {
     display: block;
     width: 100%;
+    background-color: var(--input-background);
+    display: block;
+    margin: 0;
+    margin-bottom: 0!important;
+    padding: .4em .25em;
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: .3em;
+    border: var(--line-size) solid var(--input-background);
+    font-size: 110%;
+    color: var(--theme-text-color);
+  }
+  .inputContainer{
+    margin-bottom: 1.41em;
+  }
+  table {
+    border-collapse:collapse;
+    border-radius: 0.45em;
+    background-color: var(--input-background);
   }
 </style>

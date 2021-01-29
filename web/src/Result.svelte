@@ -6,10 +6,10 @@
   };
 </script>
 
-<tr class={result.message}>
+<tr>
   <td>{result.api}</td>
   <td>{result.timer} ms</td>
-  <td>{result.message}</td>
+  <td class={result.message}>{result.message}</td>
 </tr>
 
 <style>
@@ -17,12 +17,12 @@
     text-align: center;
   }
   .ok {
-    background-color: #c0ffc0;
+    background-color: var(--theme-primary-color);
   }
   .error {
-    background-color: #c07820;
+    background-color: #cb272a
   }
   .loading {
-    background-color: aliceblue;
+    background-color: #a6b64c;
   }
 </style>
