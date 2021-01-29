@@ -8,7 +8,16 @@
 
 ### WEB 版本
 
-浏览器访问[这里](https://kejunmao.github.io/better-emby-server/index.html)
+使用纯浏览器实现，所有操作都在本地实现。
+
+另外，由于浏览器安全策略原因，还分如下两个版本
+
+* [https 版本](https://kejunmao.github.io/better-emby-server/index.html)
+
+  仅能测试 https 链接的 emby 服务器
+* [http 版本](http://bes.kejun.me)
+
+  可以测试 http 和 https 的 emby 服务器
 
 ### 命令行
 #### 基础
