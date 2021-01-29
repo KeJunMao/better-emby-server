@@ -5,7 +5,13 @@
 ## 使用
 
 首先感谢 [emby 公益服](https://rartv.gitbook.io/emby-public/)，感谢水管工大佬。
-### 基础
+
+### WEB 版本
+
+浏览器访问[这里](https://kejunmao.github.io/better-emby-server/index.html)
+
+### 命令行
+#### 基础
 
 使用 `-f` 指定服务器列表，只要把通过 `/create` 命令，厂妹发给你的信息另存为一个文件即可
 
@@ -26,7 +32,7 @@ http://*****.emby.****:80 2957ms not emby
   - `ok` 请求成功
   - `not emby` 请求成功但不是 emby 服务器
 
-### 使用代理
+#### 使用代理
 
 使用 `-p` 指定代理，仅支持 `http` `https` `socks5`
 
@@ -36,7 +42,7 @@ http://*****.emby.****:8096 233ms not emby
 http://*****.emby.****:80 303ms not emby
 http://*****.emby.****:80 403ms not emby
 ```
-## 帮助
+#### 帮助
 
 ```bash
 ❯ bes -h
