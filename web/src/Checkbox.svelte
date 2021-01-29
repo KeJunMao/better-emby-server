@@ -1,15 +1,19 @@
 <script>
-  export let checked = false
+  export let checked = false;
+  export let disabled = false;
 </script>
 
-<label class="checkboxContainer emby-checkbox-label">
-  <input type="checkbox" class="checkbox" bind:checked={checked} />
+<label class="checkboxContainer {disabled ? 'disabled' : ''}">
+  <input type="checkbox" class="checkbox" bind:checked {disabled} />
   <span class="checkboxLabel">
-    <slot/>
+    <slot />
   </span>
 </label>
 
 <style>
+  .checkboxContainer.disabled {
+    cursor: not-allowed;
+  }
   .checkboxContainer {
     display: flex;
     align-items: center;
@@ -28,7 +32,7 @@
     margin: 0;
     display: inline-flex;
     align-items: flex-start;
-    font-size: .9em;
+    font-size: 0.9em;
   }
   .checkboxLabel::before {
     content: "";
