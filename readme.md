@@ -6,7 +6,7 @@
 
 ## 使用
 
-首先感谢 [emby 公益服](https://rartv.gitbook.io/emby-public/)，感谢水管工大佬。
+首先感谢 [emby 公益服](https://t.me/EmbyPublic)，感谢水管工大佬。
 
 ### WEB 版本
 
